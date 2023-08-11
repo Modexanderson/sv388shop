@@ -447,92 +447,461 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const Divider(),
                 reviewEntity(
-                    'Văn Hoàng',
-                    'Hàng giống hình lắm shop. Mình thật sự rất thích',
-                    '6',
-                    '30 phút trước'),
-                reviewEntity('Thanh Nhàn', 'Có miễn phí ship ko shop ?', '2',
-                    '56 phút trước'),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    reviewEntity('KU SHOP', 'Có miễn phí nội thành HCM nha', '',
-                        '52 phút trước'),
-                    reviewEntity('Văn Hoàng', 'Cảm ơn Shop hàng oke lắm', '',
-                        '43 phút trước'),
-                    reviewEntity(
-                        'Thị Hằng',
-                        'Tư vấn mình muốn mua tặng bạn trai',
-                        '',
-                        '40 phút trước'),
-                    reviewEntity('Thanh nhàn', 'Cảm ơn ạ', '', '39 phút trước'),
-                  ],
+                  'Văn Hoàng',
+                  'Hàng giống hình lắm shop. Mình thật sự rất thích',
+                  '6',
+                  '30 phút trước',
+                  [],
                 ),
+                reviewEntity('Thanh Nhàn', 'Có miễn phí ship ko shop ?', '2',
+                    '56 phút trước', [
+                  commentEntity('KU SHOP', 'Có miễn phí nội thành HCM nha',
+                      '52 phút trước'),
+                  commentEntity(
+                      'Văn Hoàng', 'Cảm ơn Shop hàng oke lắm', '43 phút trước'),
+                  commentEntity('Thị Hằng',
+                      'Tư vấn mình muốn mua tặng bạn trai', '40 phút trước'),
+                  commentEntity('Thanh nhàn', 'Cảm ơn ạ', '39 phút trước'),
+                ]),
                 reviewEntity(
                     'Văn Hoàng',
                     'Tư vấn mình vài mẫu với ạ mình muốn mua thêm',
                     '2',
-                    '1 ngày trước'),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                    '1 ngày trước', [
+                  commentEntity('KU SHOP', 'Check inbox cảm ơn quý khách',
+                      '20 giờ trước'),
+                ]),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: Column(
+              children: [
+                Row(
                   children: [
-                    reviewEntity('KU SHOP', 'Check inbox cảm ơn quý khách ạ',
-                        '', '20 giờ trước'),
+                    Container(
+                      color: Colors.blue,
+                    ),
+                    Container(
+                      color: Colors.blue,
+                    ),
+                  ],
+                ),
+                Image.asset('assets/images/image.jpg'),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.grey, // Border color
+                      width: 2.0, // Border width
+                    ),
+                  ),
+                  child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const Text(
+                            'Ưu đãi chỉ dành cho 50 khách đặt hàng đầu tiên'),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 20),
+                            decoration: const BoxDecoration(
+                                color: Colors.black45,
+                                shape: BoxShape.rectangle),
+                            child: const Text(
+                              'GIÁ ƯU ĐÃI',
+                              style: TextStyle(color: Colors.white),
+                            )),
+                        const Text(
+                          '649.000 VNĐ',
+                          style: TextStyle(fontSize: 40),
+                        ),
+                        const Text(
+                          'Giá gốc: 999.000 VNĐ',
+                          style:
+                              TextStyle(decoration: TextDecoration.lineThrough),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const Text(
+                          'Khuyến mãi kết thúc sau',
+                        ),
+                        timerContainerDemo(true),
+                        Column(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
+                              child: Image.asset('assets/images/image.jpg'),
+                            ),
+                            animatedTextsButton(
+                              'MUA NGAY & GIAO HANG TOAN QUOC',
+                            )
+                          ],
+                        ),
+                      ]),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            color: Colors.grey,
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              animatedTextsButton('BÁN CHẠY'),
+              const Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text('Trại giống Sv388 Thomo'),
+                  Text(
+                    'SV388 SHOP',
+                    textAlign: TextAlign.end,
+                  ),
+                ],
+              ),
+              const SizedBox(width: 20.0, child: Divider()),
+              const Text('Bạn của nhà nông'),
+              const SizedBox(
+                height: 20,
+              ),
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/image.jpg',
+                    height: 250,
+                    // width: 250,
+                  ),
+                  const Positioned(
+                    top: 10,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              '999.000 VNĐ',
+                              style: TextStyle(
+                                  decoration: TextDecoration.lineThrough),
+                            ),
+                            Text('649.000 VNĐ'),
+                          ],
+                        ),
+                        //Flash sale
+                        // ClipPath(
+                        //   clipper: FlashSaleClipper(),
+                        //   child: Container(
+                        //     width: 150,
+                        //     height: 150,
+                        //     color: Colors.red, // Color of the flash sale shape
+                        //     child: const Center(
+                        //       child: Text(
+                        //         'FLASH SALE',
+                        //         style: TextStyle(
+                        //           color: Colors.white, // Text color
+                        //           fontWeight: FontWeight.bold,
+                        //           fontSize: 16,
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              const Text(
+                'CAM KẾT THỰC HIỆN CHÍNH SÁCH',
+                style: TextStyle(),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                color: Colors.white,
+                child: const Card(
+                  elevation: 5,
+                  margin: EdgeInsets.all(20),
+                  color: Colors.white,
+                  child: Column(children: [
+                    ListTile(
+                        leading: Icon(Icons.fiber_manual_record),
+                        title: Text('Thanh toán khi nhận'),
+                        subtitle: Text(
+                            'Nhận hàng và kiểm tra hàng rồi mới thanh toán')),
+                    ListTile(
+                        leading: Icon(Icons.fiber_manual_record),
+                        title: Text('Đổi trả 365 ngày'),
+                        subtitle: Text(
+                            'Sản phẩm không đúng cam kết, nhầm mã được đổi trả thoải mái ')),
+                    ListTile(
+                        leading: Icon(Icons.fiber_manual_record),
+                        title: Text('Giao hàng toàn quốc'),
+                        subtitle: Text(
+                            'Giao hàng siêu tốc khắp các tỉnh thành trên cả nước')),
+                  ]),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Container(
+                color: Colors.white,
+                child: Card(
+                  elevation: 5,
+                  margin: const EdgeInsets.all(20),
+                  color: const Color.fromARGB(255, 46, 42, 42),
+                  child: Column(children: [
+                    const SizedBox(height: 20),
+                    const Text('Khuyến mãi kết thúc sau'),
+                    timerContainerDemo(true),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 20),
+                          const Text('ĐĂNG KÝ ĐẶT MUA NGAY'),
+                          const SizedBox(height: 10),
+                          TextFormField(
+                            decoration:
+                                const InputDecoration(hintText: 'Input 1'),
+                          ),
+                          const SizedBox(width: 10),
+                          TextFormField(
+                            decoration:
+                                const InputDecoration(hintText: 'Input 2'),
+                          ),
+                          const SizedBox(width: 10),
+                          TextFormField(
+                            decoration:
+                                const InputDecoration(hintText: 'Input 3'),
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: DropdownButtonFormField<String>(
+                                  onChanged: (value) {},
+                                  decoration: const InputDecoration(
+                                      hintText: 'Dropdown 1'),
+                                  items: ['Option 1', 'Option 2', 'Option 3']
+                                      .map((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                ),
+                              ),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: DropdownButtonFormField<String>(
+                                  onChanged: (value) {},
+                                  decoration: const InputDecoration(
+                                      hintText: 'Dropdown 2'),
+                                  items: ['Option A', 'Option B', 'Option C']
+                                      .map((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    animatedTextsButton('MUA NGAY')
+                  ]),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Container(
+                color: Colors.white,
+                child: const Card(
+                  elevation: 5,
+                  margin: EdgeInsets.all(20),
+                  color: Color.fromARGB(255, 46, 42, 42),
+                  child: Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Column(children: [
+                      SizedBox(height: 20),
+                      Text(
+                          'Bằng TÂM và TÍN. Trại gà Sv388 SHOP luôn tự hào mang đến cho khách hàng những sản phẩm đẳng cấp cùng dịch vụ chất lượng nhất.'),
+                      SizedBox(height: 20),
+                      Text('SV388 SHOP'),
+                      Row(
+                        children: [
+                          Icon(Icons.home),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text('Address: 220 Huỳnh Tấn Phát - Tp Hồ Chí Minh')
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.phone),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text('0972564781')
+                        ],
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        children: [
+                          Icon(Icons.phone),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Column(
+                            children: [
+                              Text('HOTLINE (08:00-17:30)'),
+                              Text('0972564781'),
+                              Text('Tất cả các ngày trong tuần'),
+                              SizedBox(height: 50),
+                              Divider(),
+                            ],
+                          )
+                        ],
+                      ),
+                    ]),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+            ]),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(onPressed: () {}),
+    );
+  }
+
+  Widget reviewEntity(
+    String title,
+    String subtitle,
+    String likes,
+    String timeAgo,
+    List<Widget>? childWidgets,
+  ) {
+    return Card(
+      elevation: 4.0,
+      margin: const EdgeInsets.all(10.0),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const CircleAvatar(
+              backgroundImage: AssetImage('assets/images/Hotpot.png'),
+            ),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 250),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+                    child: Text(title),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 5, 0, 0),
+                    child: Text(subtitle),
+                  ),
+                  Row(
+                    children: List.generate(
+                      rating,
+                      (index) => const Icon(
+                        Icons.star,
+                        color: Colors.yellow,
+                        size: 15,
+                      ),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Text('Thích - Phản hồi'),
+                      IconButton(
+                        icon: const Icon(Icons.thumb_up),
+                        onPressed: () {
+                          // Handle like button press
+                        },
+                      ),
+                      Text(likes),
+                      Text(
+                        timeAgo,
+                        // style: TextStyle(overflow: TextOverflow.),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Column(
+                    children: childWidgets!,
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget commentEntity(String title, String subtitle, String timeAgo) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const CircleAvatar(
+            backgroundImage: AssetImage('assets/images/Hotpot.png'),
+          ),
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: double.infinity),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+                  child: Text(title),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 5, 0, 0),
+                  child: SizedBox(
+                    width: 180,
+                    child: Text(
+                      subtitle,
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const Text('Thích - Phản hồi'),
+                    Text(
+                      timeAgo,
+                      // style: TextStyle(overflow: TextOverflow.),
+                    ),
                   ],
                 ),
               ],
             ),
           ),
-        ],
-      ),
-    );
-  }
-
-  Widget reviewEntity(
-      String title, String subtitle, String likes, String timeAgo) {
-    return Card(
-      elevation: 4.0,
-      margin: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const ListTile(
-            leading: CircleAvatar(
-              backgroundImage: AssetImage(''),
-            ),
-            title: Text('John Doe'),
-            subtitle: Text('Web Developer'),
-            // Text('City, Country'),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Row(
-                children: List.generate(
-                  rating,
-                  (index) => const Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                    size: 15,
-                  ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  const Text('Thích - Phản hồi'),
-                  IconButton(
-                    icon: const Icon(Icons.thumb_up),
-                    onPressed: () {
-                      // Handle like button press
-                    },
-                  ),
-                  Text(likes),
-                  Text(timeAgo),
-                ],
-              ),
-            ],
-          )
         ],
       ),
     );
