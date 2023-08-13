@@ -5,10 +5,12 @@ import 'animated_text.dart';
 import 'animated_texts_button.dart';
 import 'policy_object.dart';
 import 'timer_container.dart';
+import 'timer_manager.dart';
 
 class FifthSection extends StatelessWidget {
-  const FifthSection({super.key});
-
+  final remainingSeconds;
+  FifthSection({required this.remainingSeconds, super.key});
+  final TimerManager timerManager = TimerManager();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -135,14 +137,17 @@ class FifthSection extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  const TimerContainer(isCentered: true),
+                  TimerContainer(
+                      remainingSeconds: remainingSeconds,
+                      // remainingTime: timerManager.remainingTime,
+                      isCentered: true),
                   Column(
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Image.asset('assets/images/news_331.jpg'),
                       ),
-                      const AnimatedShape(
+                      AnimatedShape(
                         child: AnimatedTextsButton(
                             intialText: 'MUA NGAY',
                             finalText: 'GIAO HANG TOAN QUOC'),

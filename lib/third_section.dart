@@ -5,10 +5,12 @@ import 'animated_text.dart';
 import 'animated_texts_button.dart';
 import 'text_container.dart';
 import 'timer_container.dart';
+import 'timer_manager.dart';
 
 class ThirdSection extends StatelessWidget {
-  const ThirdSection({super.key});
-
+  final remainingSeconds;
+  ThirdSection({required this.remainingSeconds, super.key});
+  final TimerManager timerManager = TimerManager();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -51,7 +53,10 @@ class ThirdSection extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const TimerContainer(isCentered: true),
+              TimerContainer(
+                  remainingSeconds: remainingSeconds,
+                  // remainingTime: timerManager.remainingTime,
+                  isCentered: true),
               Column(
                 children: [
                   Padding(
@@ -59,7 +64,7 @@ class ThirdSection extends StatelessWidget {
                     child: Image.asset('assets/images/news_257.jpg',
                         fit: BoxFit.cover),
                   ),
-                  const AnimatedShape(
+                  AnimatedShape(
                     child: AnimatedTextsButton(
                         intialText: 'MUA NGAY',
                         finalText: 'GIAO HANG TOAN QUOC'),

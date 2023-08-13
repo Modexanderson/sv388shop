@@ -1,10 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CommentEntity extends StatelessWidget {
   final title;
   final subTitle;
+  final image;
   final timeAgo;
-  const CommentEntity({this.title, this.subTitle, this.timeAgo, super.key});
+  const CommentEntity(
+      {this.title,
+      this.subTitle,
+      required this.image,
+      this.timeAgo,
+      super.key});
+  final String linkUrl =
+      'https://www.facebook.com/profile.php?id=100064486862460';
+  Future<void> _launchLink() async {
+    if (await canLaunch(linkUrl)) {
+      await launch(linkUrl);
+    } else {
+      // Handle error
+      throw 'Could not launch $linkUrl';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +30,16 @@ class CommentEntity extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CircleAvatar(
-            backgroundImage: AssetImage('assets/images/Hotpot.png'),
+          GestureDetector(
+            onTap: _launchLink,
+            child: SizedBox(
+              width: 50,
+              height: 50,
+              child: Image.asset(image),
+            ),
           ),
           ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: double.infinity),
+            constraints: const BoxConstraints(maxWidth: 184),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

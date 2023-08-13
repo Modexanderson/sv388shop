@@ -21,7 +21,7 @@ class _SixthSectionState extends State<SixthSection> {
         const SizedBox(
           height: 20,
         ),
-        const AnimatedTextsButton(intialText: 'BÁN CHẠY'),
+        AnimatedTextsButton(intialText: 'BÁN CHẠY'),
         Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -64,7 +64,7 @@ class _SixthSectionState extends State<SixthSection> {
           alignment: Alignment.topLeft,
           children: [
             Image.asset(
-              'assets/images/news_331.jpg.jpg',
+              'assets/images/news_331.jpg',
               height: 250,
               // width: 250,
             ),
@@ -103,7 +103,7 @@ class _SixthSectionState extends State<SixthSection> {
                       ),
                       Positioned(
                         top: 3,
-                        right: 70, // Adjust the position as needed
+                        right: 7, // Adjust the position as needed
 
                         child: AnimatedShape(
                           child: ClipPath(

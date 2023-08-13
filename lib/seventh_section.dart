@@ -8,11 +8,11 @@ class SeventhSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      // color: Colors.white,
       child: const Card(
         elevation: 5,
         margin: EdgeInsets.all(20),
-        color: Colors.white,
+        // color: Colors.white,
         child: Column(children: [
           CustomListTile(
               title: 'Thanh toán khi nhận',

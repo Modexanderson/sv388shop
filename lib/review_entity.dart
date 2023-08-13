@@ -1,32 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ReviewEntity extends StatelessWidget {
   final String title;
   final String subtitle;
   final String likes;
+  final String image;
   final String timeAgo;
   final List<Widget>? childWidgets;
   const ReviewEntity(
       {required this.title,
       required this.subtitle,
       required this.likes,
+      required this.image,
       required this.timeAgo,
       this.childWidgets,
       super.key});
   final int rating = 5; // Number of stars
+  final String linkUrl =
+      'https://www.facebook.com/profile.php?id=100064486862460';
+  Future<void> _launchLink() async {
+    if (await canLaunch(linkUrl)) {
+      await launch(linkUrl);
+    } else {
+      // Handle error
+      throw 'Could not launch $linkUrl';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 4.0,
+      elevation: 0.0,
       margin: const EdgeInsets.all(10.0),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CircleAvatar(
-              backgroundImage: AssetImage('assets/images/Hotpot.png'),
+            GestureDetector(
+              onTap: _launchLink,
+              child: SizedBox(
+                width: 50,
+                height: 50,
+                child: Image.asset(image),
+              ),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 250),
@@ -64,11 +82,29 @@ class ReviewEntity extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const Text('Thích - Phản hồi'),
-                      IconButton(
-                        icon: const Icon(Icons.thumb_up),
-                        onPressed: () {
-                          // Handle like button press
-                        },
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: 25,
+                        height: 25,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.blue,
+                        ),
+                        child: IconButton(
+                          icon: const Icon(
+                            Icons.thumb_up,
+                            size: 10,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {
+                            // Handle like button press
+                          },
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10,
                       ),
                       Text(likes),
                       Text(

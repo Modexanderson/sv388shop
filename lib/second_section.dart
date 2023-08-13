@@ -7,10 +7,13 @@ import 'custom_listtile.dart';
 import 'policy_object.dart';
 import 'text_container.dart';
 import 'timer_container.dart';
+import 'timer_manager.dart';
 
 class SecondSection extends StatelessWidget {
-  const SecondSection({super.key});
+  final remainingSeconds;
+  SecondSection({required this.remainingSeconds, super.key});
   final int rating = 5; // Number of stars
+  final TimerManager timerManager = TimerManager();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -137,7 +140,10 @@ class SecondSection extends StatelessWidget {
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                               )),
-                          const TimerContainer(isCentered: false),
+                          TimerContainer(
+                              remainingSeconds: remainingSeconds,
+                              // remainingTime: timerManager.remainingTime,
+                              isCentered: false),
                           const Text('Số lượng sản phẩm còn lại: 32'),
                           const SizedBox(
                             height: 20,
@@ -156,14 +162,15 @@ class SecondSection extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const Row(
+                          Row(
                             children: [
                               AnimatedShape(
                                 child: AnimatedTextsButton(
                                     intialText: 'MUA NGAY',
                                     finalText: 'GIAO HANG TOAN QUOC'),
                               ),
-                              AnimatedShape(child: Icon(Icons.arrow_back)),
+                              const AnimatedShape(
+                                  child: Icon(Icons.arrow_back)),
                             ],
                           ),
                           const SizedBox(
@@ -246,7 +253,7 @@ class SecondSection extends StatelessWidget {
                         const TextContainer(
                           text: 'CHI TIẾT SẢN PHẨM',
                           fontSize: 30,
-                          containerCcolor: Colors.white,
+                          // containerCcolor: Colors.white,
                         ),
                       ],
                     ),

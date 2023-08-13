@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sv388shop/animated_shape.dart';
+import 'package:sv388shop/timer_manager.dart';
 
 import 'animated_texts_button.dart';
 import 'flash_sale_chipper.dart';
@@ -7,12 +8,13 @@ import 'text_container.dart';
 import 'timer_container.dart';
 
 class FirstSection extends StatelessWidget {
-  const FirstSection({super.key});
+  final remainingSeconds;
+  FirstSection({required this.remainingSeconds, super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey[200],
+      // color: Colors.grey[200],
       padding: const EdgeInsets.all(30),
       child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
@@ -79,22 +81,25 @@ class FirstSection extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Thanh toán khi nhận hàng',
                       style: TextStyle(),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
-                    Text(
+                    const Text(
                       'Khuyến mãi kết thúc sau',
                       style: TextStyle(),
                     ),
                     // Timer
-                    TimerContainer(isCentered: false),
+                    TimerContainer(
+                        remainingSeconds: remainingSeconds,
+                        // remainingTime: timerManager.remainingTime,
+                        isCentered: false),
                   ],
                 ),
                 AnimatedShape(
@@ -124,7 +129,7 @@ class FirstSection extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                const AnimatedShape(
+                AnimatedShape(
                     child: AnimatedTextsButton(intialText: 'MUA NGAY')),
                 const SizedBox(width: 20),
                 Image.asset(
