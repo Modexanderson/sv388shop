@@ -51,8 +51,8 @@ class _EightSectionState extends State<EightSection> {
     final smtpServer = gmail('cupertinostudios@gmail.com', 'yqglqcuhiwklooqi');
 
     final message = Message()
-      ..from = const Address('Mordecai.a.d@gmail.com')
-      ..recipients.add('cupertinostudios@gmail.com') // Admin's email address
+      ..from = const Address('nguyentienman1243@gmail.com')
+      ..recipients.add('nguyentienman1243@gmail.com') // Admin's email address
       ..subject = 'Gửi đơn đặt hàng mới'
       ..text = '''
       Họ và tên: ${input1Controller.text}
@@ -124,6 +124,7 @@ class _EightSectionState extends State<EightSection> {
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         decoration: const InputDecoration(
                             hintText: 'Họ và tên',
+                            hintStyle: TextStyle(color: Colors.black),
                             filled: true,
                             fillColor: Colors.white
 
@@ -137,6 +138,7 @@ class _EightSectionState extends State<EightSection> {
                         keyboardType: TextInputType.number,
                         controller: input2Controller,
                         decoration: const InputDecoration(
+                            hintStyle: TextStyle(color: Colors.black),
                             hintText: 'Số điện thoại',
                             filled: true,
                             fillColor: Colors.white),
@@ -148,6 +150,7 @@ class _EightSectionState extends State<EightSection> {
                         keyboardType: TextInputType.streetAddress,
                         controller: input3Controller,
                         decoration: const InputDecoration(
+                            hintStyle: TextStyle(color: Colors.black),
                             hintText: 'Địa chỉ',
                             filled: true,
                             fillColor: Colors.white),
